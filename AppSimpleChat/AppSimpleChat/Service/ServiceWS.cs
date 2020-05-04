@@ -73,7 +73,7 @@ namespace AppSimpleChat.Service
         }
         public static bool UpdateChatName(Chat chat)
         {
-            var url = urlBase + "/chat";
+            var url = urlBase + "/chat/" + chat.id;
 
             FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
                 new KeyValuePair<string, string>("nome", chat.name),
@@ -81,6 +81,19 @@ namespace AppSimpleChat.Service
 
             HttpClient httpRequest = new HttpClient();
             HttpResponseMessage httpResponse = httpRequest.PutAsync(url, param).GetAwaiter().GetResult();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool DeleteChat (Chat chat)
+        {
+            var url = urlBase + "/chat/delete/" + chat.id;
+
+            HttpClient httpRequest = new HttpClient();
+            HttpResponseMessage httpResponse = httpRequest.DeleteAsync(url).GetAwaiter().GetResult();
+
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
                 return true;
