@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using AppSimpleChat.Model;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace AppSimpleChat.Service
 {
@@ -41,10 +42,34 @@ namespace AppSimpleChat.Service
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
                 string content = httpResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-                List<Chat> list = JsonConvert.DeserializeObject<List<Chat>>(content);
+                if (content.Length > 2)
+                {
+                    List<Chat> list = JsonConvert.DeserializeObject<List<Chat>>(content);
+                    return list;
+                }
+                else
+                {
+                    return null;
+                }
+                
             }
             return null;
         }
+        public static bool InsertChat(Chat chat)
+        {
+            var url = urlBase + "/chat";
 
+            FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
+                new KeyValuePair<string, string>("nome", chat.name),
+            });
+
+            HttpClient httpRequest = new HttpClient();
+            HttpResponseMessage httpResponse = httpRequest.PostAsync(url, param).GetAwaiter().GetResult();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
