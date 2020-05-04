@@ -105,7 +105,7 @@ namespace AppSimpleChat.Service
             var url = urlBase + "/chat/" + chat.id + "/msg"; 
 
             HttpClient httpRequest = new HttpClient();
-            HttpResponseMessage httpResponse = httpRequest.DeleteAsync(url).GetAwaiter().GetResult();
+            HttpResponseMessage httpResponse = httpRequest.GetAsync(url).GetAwaiter().GetResult();
 
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
@@ -117,6 +117,24 @@ namespace AppSimpleChat.Service
                 }
             }
             return null;
+        }
+        public static bool InsertMessage (Message message)
+        {
+            var url = urlBase + "/chat/" + message.id_chat + "/msg";
+
+            FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
+                new KeyValuePair<string, string>("nome", message.message),
+                new KeyValuePair<string, string>("nome", message.id_usuario.ToString())
+            });
+
+            HttpClient httpRequest = new HttpClient();
+            HttpResponseMessage httpResponse = httpRequest.PostAsync(url, param).GetAwaiter().GetResult();
+
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
