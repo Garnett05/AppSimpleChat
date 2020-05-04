@@ -71,5 +71,21 @@ namespace AppSimpleChat.Service
             }
             return false;
         }
+        public static bool UpdateChatName(Chat chat)
+        {
+            var url = urlBase + "/chat";
+
+            FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
+                new KeyValuePair<string, string>("nome", chat.name),
+            });
+
+            HttpClient httpRequest = new HttpClient();
+            HttpResponseMessage httpResponse = httpRequest.PutAsync(url, param).GetAwaiter().GetResult();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
