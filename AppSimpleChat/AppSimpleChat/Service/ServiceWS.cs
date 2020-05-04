@@ -136,5 +136,18 @@ namespace AppSimpleChat.Service
             }
             return false;
         }
+        public static bool DeleteMessage (Message message)
+        {
+            var url = urlBase + "/chat/" + message.id_chat + "/`delete/" + message.id;
+            
+            HttpClient httpRequest = new HttpClient();
+            HttpResponseMessage httpResponse = httpRequest.DeleteAsync(url).GetAwaiter().GetResult();
+
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
