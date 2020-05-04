@@ -100,5 +100,23 @@ namespace AppSimpleChat.Service
             }
             return false;
         }
+        public static List<Message> GetMessages(Chat chat)
+        {
+            var url = urlBase + "/chat/" + chat.id + "/msg"; 
+
+            HttpClient httpRequest = new HttpClient();
+            HttpResponseMessage httpResponse = httpRequest.DeleteAsync(url).GetAwaiter().GetResult();
+
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                string content = httpResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                if (content.Length > 2)
+                {
+                    List<Message> list = JsonConvert.DeserializeObject<List<Message>>(content);
+                    return list;
+                }
+            }
+            return null;
+        }
     }
 }
