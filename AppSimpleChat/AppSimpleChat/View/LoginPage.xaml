@@ -4,12 +4,16 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppSimpleChat.View.LoginPage">
+             x:Class="AppSimpleChat.View.LoginPage"
+             BackgroundColor="LightGreen">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="10" >
+            <Label Text="Your chat" Style="{StaticResource lblHome}" />
+            <StackLayout VerticalOptions="CenterAndExpand" >
+            <Entry Text="{Binding Name}" Style="{StaticResource entryHome}" Placeholder="username" />
+            <Entry Text="{Binding Password}" Style="{StaticResource entryHome}" Placeholder="password" IsPassword="True" />
+                <Button Text="Ok" Style="{StaticResource btnHome}" />
+            </StackLayout>            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
