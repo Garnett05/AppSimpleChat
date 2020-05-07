@@ -10,7 +10,7 @@ namespace AppSimpleChat
         {
             InitializeComponent();
 
-            MainPage = new View.LoginPage();
+            MainPage = new View.CreateChat();
         }
 
         protected override void OnStart()

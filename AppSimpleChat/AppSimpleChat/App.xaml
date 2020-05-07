@@ -28,6 +28,12 @@
                 <Setter Property="CornerRadius" Value="6" />
                 <Setter Property="Margin" Value="0, 10, 0, 0" />
             </Style>
+            <!--CreateChat Page Dictionary -->
+            <Style x:Key="entryCreatePage" TargetType="Entry" >
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="PlaceholderColor" Value="White" />
+            </Style>
             
         </ResourceDictionary>
     </Application.Resources>

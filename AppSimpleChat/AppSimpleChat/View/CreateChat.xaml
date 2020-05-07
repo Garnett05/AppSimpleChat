@@ -4,12 +4,12 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppSimpleChat.View.CreateChat">
+             x:Class="AppSimpleChat.View.CreateChat"
+             BackgroundColor="LightGreen">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Center" Padding="8" >
+            <Entry Placeholder="Chat name:" Style="{StaticResource entryCreatePage}" />
+            <Button Text="Create" Style="{StaticResource btnHome}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

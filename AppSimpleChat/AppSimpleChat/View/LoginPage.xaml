@@ -10,10 +10,10 @@
         <StackLayout Padding="10" >
             <Label Text="Your chat" Style="{StaticResource lblHome}" />
             <StackLayout VerticalOptions="CenterAndExpand" >
-            <Entry Text="{Binding Name}" Style="{StaticResource entryHome}" Placeholder="username" />
-            <Entry Text="{Binding Password}" Style="{StaticResource entryHome}" Placeholder="password" IsPassword="True" />
+                <Entry Text="{Binding Name}" Style="{StaticResource entryHome}" Placeholder="username" />
+                <Entry Text="{Binding Password}" Style="{StaticResource entryHome}" Placeholder="password" IsPassword="True" />
                 <Button Text="Ok" Style="{StaticResource btnHome}" />
-            </StackLayout>            
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
