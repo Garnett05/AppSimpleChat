@@ -6,10 +6,26 @@
              mc:Ignorable="d"
              x:Class="AppSimpleChat.View.PrivateChatPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="5, 10" Spacing="0" >
+            <ScrollView>
+                <StackLayout Spacing="0" >
+                    <Frame BorderColor="LightGreen" HorizontalOptions="Start" VerticalOptions="Center" >
+                        <StackLayout Spacing="0" >
+                            <Label Text="Fefo" FontSize="10" TextColor="LightGreen" />
+                            <Label Text="Hello friends!" TextColor="LightGreen" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame CornerRadius="0" HorizontalOptions="End" VerticalOptions="Center" BackgroundColor="LightGreen">
+                    <StackLayout Padding="5" >
+                        <Label Text="Hello world!" TextColor="White" FontSize="16" />
+                    </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
+                <Entry Placeholder="Type your message" BackgroundColor="White" TextColor="LightGreen" HorizontalOptions="FillAndExpand" />
+                <Button Text="Send" BackgroundColor="LightGreen" TextColor="White" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
