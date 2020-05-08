@@ -12,7 +12,8 @@
             <StackLayout VerticalOptions="CenterAndExpand" >
                 <Entry Text="{Binding Name}" Style="{StaticResource entryHome}" Placeholder="username" />
                 <Entry Text="{Binding Password}" Style="{StaticResource entryHome}" Placeholder="password" IsPassword="True" />
-                <Button Text="Ok" Style="{StaticResource btnHome}" />
+                <Button Text="Ok" Style="{StaticResource btnHome}" Command="{Binding LoginCommand}" />
+                <Label Text="{Binding MessageError}" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

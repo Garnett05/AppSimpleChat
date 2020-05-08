@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppSimpleChat.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace AppSimpleChat.View
         public LoginPage()
         {
             InitializeComponent();
+            BindingContext = new LoginViewModel();
         }
     }
 }

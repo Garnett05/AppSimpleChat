@@ -29,7 +29,8 @@ namespace AppSimpleChat.Service
             HttpResponseMessage httpResponse = httpRequest.PostAsync(url, param).GetAwaiter().GetResult();
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
-                //Deserializar, retornar no método e salvar como login
+                var content = httpResponse.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+                return JsonConvert.DeserializeObject<User>(content);
             }
             return null;
         }
