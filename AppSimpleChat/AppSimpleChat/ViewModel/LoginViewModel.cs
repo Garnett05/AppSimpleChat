@@ -40,12 +40,12 @@ namespace AppSimpleChat.ViewModel
             var userLogged = ServiceWS.GetUser(user);
             if (userLogged == null)
             {
-                MessageError = "Error. Password incorrect";
+                MessageError = "Password incorrect";
             }
             else
             {
                 App.Current.Properties["LOGIN"] = JsonConvert.SerializeObject(userLogged);
-                App.Current.MainPage = new NavigationPage(new ChatPage());
+                App.Current.MainPage = new NavigationPage(new ChatPage()) { BarBackgroundColor = Color.LightGreen, BarTextColor = Color.White};
             }
 
         }

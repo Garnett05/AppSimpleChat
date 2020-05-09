@@ -7,6 +7,6 @@ namespace AppSimpleChat.Model
     public class Chat
     {
         public int id { get; set; }
-        public string name { get; set; }
+        public string nome { get; set; }
     }
 }

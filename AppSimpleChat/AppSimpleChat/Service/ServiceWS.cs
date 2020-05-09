@@ -61,7 +61,7 @@ namespace AppSimpleChat.Service
             var url = urlBase + "/chat";
 
             FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
-                new KeyValuePair<string, string>("nome", chat.name),
+                new KeyValuePair<string, string>("nome", chat.nome),
             });
 
             HttpClient httpRequest = new HttpClient();
@@ -77,7 +77,7 @@ namespace AppSimpleChat.Service
             var url = urlBase + "/chat/" + chat.id;
 
             FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
-                new KeyValuePair<string, string>("nome", chat.name),
+                new KeyValuePair<string, string>("nome", chat.nome),
             });
 
             HttpClient httpRequest = new HttpClient();

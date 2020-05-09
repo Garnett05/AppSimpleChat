@@ -4,12 +4,20 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="AppSimpleChat.View.ChatPage">
+             x:Class="AppSimpleChat.View.ChatPage"
+             Title="Public Chats">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="add.png" Text="New Chat" Command="{Binding AddCommand}" />
+        <ToolbarItem IconImageSource="sort.png" Text="Order by Name" Command="{Binding SortCommand}" />
+        <ToolbarItem IconImageSource="refresh.png" Text="Refresh Page" Command="{Binding RefreshCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView>
+        <ListView ItemsSource="{Binding Chats}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding name}" TextColor="LightGreen" />
+                    <ViewCell>
+                        <Label Text="{Binding nome}" TextColor="LightGreen" />
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
