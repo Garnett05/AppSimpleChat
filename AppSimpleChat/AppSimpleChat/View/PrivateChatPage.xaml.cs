@@ -1,4 +1,5 @@
-﻿using AppSimpleChat.ViewModel;
+﻿using AppSimpleChat.Model;
+using AppSimpleChat.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,10 @@ namespace AppSimpleChat.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PrivateChatPage : ContentPage
     {
-        public PrivateChatPage()
+        public PrivateChatPage(Chat chat)
         {
             InitializeComponent();
-            BindingContext = new PrivateChatViewModel();
+            BindingContext = new PrivateChatViewModel(chat);
         }
     }
 }

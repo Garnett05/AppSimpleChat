@@ -13,11 +13,22 @@ namespace AppSimpleChat.ViewModel
     public class ChatViewModel : INotifyPropertyChanged
     {
         private List<Chat> _chats;
+        private Chat _selectedItem;
         public List<Chat> Chats { 
             get { return _chats; } 
             set { _chats = value;
-                OnPropertyChanged("Chats");
+                OnPropertyChanged("Chats");                
             } }
+        public Chat SelectedItem
+        {
+            get { return _selectedItem; }
+            set
+            {
+                _selectedItem = value;
+                OnPropertyChanged("SelectedItem");
+                GoPrivateMessagePage(value);
+            }
+        }
         public Command AddCommand { get; set; }
         public Command SortCommand { get; set; }
         public Command RefreshCommand { get; set; }
@@ -40,6 +51,13 @@ namespace AppSimpleChat.ViewModel
         private void RefreshChat()
         {
             Chats = ServiceWS.GetChats();
+        }
+        private void GoPrivateMessagePage(Chat chat)
+        {
+            if(chat != null)
+            {
+                ((NavigationPage)App.Current.MainPage).Navigation.PushAsync(new PrivateChatPage(chat));
+            }            
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
