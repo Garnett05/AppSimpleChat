@@ -8,8 +8,9 @@
              BackgroundColor="LightGreen">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center" Padding="8" >
-            <Entry Placeholder="Chat name:" Style="{StaticResource entryCreatePage}" />
-            <Button Text="Create" Style="{StaticResource btnHome}" />
+            <Entry Placeholder="Chat name:" Text="{Binding ChatName}" Style="{StaticResource entryCreatePage}" />
+            <Button Text="Create" Style="{StaticResource btnHome}" Command="{Binding CreateChatCommand}" />
+            <Label Text="{Binding MessageError}" TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -42,7 +42,6 @@ namespace AppSimpleChat.ViewModel
             Chats = ServiceWS.GetChats();
         }
 
-
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string PropertyName)
         {
