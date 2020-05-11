@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using AppSimpleChat.Service;
 using Newtonsoft.Json;
 using AppSimpleChat.View;
+using AppSimpleChat.Util;
 
 namespace AppSimpleChat.ViewModel
 {
@@ -44,7 +45,8 @@ namespace AppSimpleChat.ViewModel
             }
             else
             {
-                App.Current.Properties["LOGIN"] = JsonConvert.SerializeObject(userLogged);
+                UserUtil.SetLoggedUser(userLogged);
+                //App.Current.Properties["LOGIN"] = JsonConvert.SerializeObject(userLogged);
                 App.Current.MainPage = new NavigationPage(new ChatPage()) { BarBackgroundColor = Color.LightGreen, BarTextColor = Color.White};
             }
 

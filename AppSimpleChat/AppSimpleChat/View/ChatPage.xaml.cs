@@ -21,11 +21,11 @@ namespace AppSimpleChat.View
             BindingContext = new ChatViewModel();
         }
         //O método override abaixo serve para realizar alguma ação quando a tela aparecer. No exemplo abaixo, realiza novamente a chamada da ViewModel
-        protected override void OnAppearing()
+        /*protected override void OnAppearing()
         {
             base.OnAppearing();
             BindingContext = new ChatViewModel();
-        }
+        }*/
     }
     
 }

@@ -17,7 +17,7 @@ namespace AppSimpleChat.View
         public PrivateChatPage(Chat chat)
         {
             InitializeComponent();
-            BindingContext = new PrivateChatViewModel(chat);
+            BindingContext = new PrivateChatViewModel(chat, slMessage);
         }
     }
 }
