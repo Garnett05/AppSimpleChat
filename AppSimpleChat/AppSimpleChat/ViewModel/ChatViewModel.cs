@@ -56,6 +56,7 @@ namespace AppSimpleChat.ViewModel
         {
             if(chat != null)
             {
+                SelectedItem = null;
                 ((NavigationPage)App.Current.MainPage).Navigation.PushAsync(new PrivateChatPage(chat));
             }            
         }

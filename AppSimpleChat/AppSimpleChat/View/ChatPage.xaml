@@ -13,7 +13,7 @@
         <ToolbarItem IconImageSource="refresh.png" Text="Refresh Page" Command="{Binding RefreshCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Chats}" SelectedItem="{Binding SelectedItem}" >
+        <ListView ItemsSource="{Binding Chats}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
