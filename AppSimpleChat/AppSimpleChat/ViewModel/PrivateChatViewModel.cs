@@ -20,7 +20,10 @@ namespace AppSimpleChat.ViewModel
             {
                 _messages = value;
                 OnPropertyChanged("Messages");
-                ShowOnScreen();
+                if (_messages != null)
+                {
+                    ShowOnScreen();
+                }                
             }
         }
         public PrivateChatViewModel(Chat chat, StackLayout slMessage)

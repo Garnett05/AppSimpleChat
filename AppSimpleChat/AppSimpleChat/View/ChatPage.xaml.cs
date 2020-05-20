@@ -27,5 +27,4 @@ namespace AppSimpleChat.View
             BindingContext = new ChatViewModel();
         }*/
     }
-    
 }
