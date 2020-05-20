@@ -5,16 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="AppSimpleChat.View.PrivateChatPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update chat" IconImageSource="refresh.png" Command="{Binding ReloadScreen}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout Padding="5, 10" Spacing="0" >
+        <StackLayout Padding="5, 10" Margin="8" >
             <ScrollView>
                 <StackLayout x:Name="slMessage" >
                 </StackLayout>
                 
             </ScrollView>
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" >
-                <Entry Placeholder="Type your message" BackgroundColor="White" TextColor="LightGreen" HorizontalOptions="FillAndExpand" />
-                <Button Text="Send" BackgroundColor="LightGreen" TextColor="White" />
+                <Entry Text="{Binding TxtMessage}" Placeholder="Type your message" BackgroundColor="White" TextColor="LightGreen" HorizontalOptions="FillAndExpand" />
+                <Button Text="Send" BackgroundColor="LightGreen" TextColor="White" Command="{Binding BtnSendMessage}" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

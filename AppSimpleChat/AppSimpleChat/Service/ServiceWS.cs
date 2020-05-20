@@ -124,8 +124,8 @@ namespace AppSimpleChat.Service
             var url = urlBase + "/chat/" + message.id_chat + "/msg";
 
             FormUrlEncodedContent param = new FormUrlEncodedContent(new[] {
-                new KeyValuePair<string, string>("nome", message.message),
-                new KeyValuePair<string, string>("nome", message.id_usuario.ToString())
+                new KeyValuePair<string, string>("mensagem", message.mensagem),
+                new KeyValuePair<string, string>("id_usuario", message.id_usuario.ToString())
             });
 
             HttpClient httpRequest = new HttpClient();

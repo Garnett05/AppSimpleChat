@@ -7,7 +7,8 @@
              x:Class="AppSimpleChat.View.ChatPage"
              Title="Public Chats">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="add.png" Text="New Chat" Command="{Binding AddCommand}" />
+        <ToolbarItem Text="Text" />
+        <ToolbarItem IconImageSource="add.png" Text="New Chat" Command="{Binding AddCommand}"  />
         <ToolbarItem IconImageSource="sort.png" Text="Order by Name" Command="{Binding SortCommand}" />
         <ToolbarItem IconImageSource="refresh.png" Text="Refresh Page" Command="{Binding RefreshCommand}" />
     </ContentPage.ToolbarItems>
@@ -16,7 +17,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding nome}" TextColor="LightGreen" />
+                        <Label Text="{Binding nome}" TextColor="Black" />
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
