@@ -10,6 +10,6 @@ namespace AppSimpleChat.Model
         public int id_chat { get; set; }
         public int id_usuario { get; set; }
         public string mensagem { get; set; }
-        public User User { get; set; }
+        public User usuario { get; set; }
     }
 }

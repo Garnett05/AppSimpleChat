@@ -57,7 +57,7 @@ namespace AppSimpleChat.ViewModel
         private void ShowOnScreen()
         {
             var loggedUser = UserUtil.GetLoggedUser();
-            _stackLayout.Children.Clear();            
+            _stackLayout.Children.Clear();
             foreach (var msg in Messages)
             {
                 if (msg.id_usuario == loggedUser.id)
@@ -85,7 +85,7 @@ namespace AppSimpleChat.ViewModel
         {
             Frame frame = new Frame() { HorizontalOptions = LayoutOptions.Start, VerticalOptions = LayoutOptions.Center, BorderColor = Color.LightGreen };
             StackLayout stackLayout = new StackLayout() { Spacing = 0 };
-            Label label1 = new Label() { Text = "User name", FontSize = 10, TextColor = Color.Black };
+            Label label1 = new Label() { Text = message.usuario.nome, FontSize = 10, TextColor = Color.Black };
             Label label2 = new Label() { Text = message.mensagem, TextColor = Color.Black };
 
             stackLayout.Children.Add(label1);
