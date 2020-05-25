@@ -7,6 +7,7 @@ using AppSimpleChat.Service;
 using Xamarin.Forms;
 using System.Linq;
 using AppSimpleChat.View;
+using System.Windows.Input;
 
 namespace AppSimpleChat.ViewModel
 {
@@ -32,6 +33,7 @@ namespace AppSimpleChat.ViewModel
         public Command AddCommand { get; set; }
         public Command SortCommand { get; set; }
         public Command RefreshCommand { get; set; }
+        public ICommand RenameCommand => new Command<Chat>(RenameChat);
         public ChatViewModel()
         {
             Chats = ServiceWS.GetChats();
@@ -54,11 +56,15 @@ namespace AppSimpleChat.ViewModel
         }
         private void GoPrivateMessagePage(Chat chat)
         {
-            if(chat != null)
+            if (chat != null)
             {
                 SelectedItem = null;
                 ((NavigationPage)App.Current.MainPage).Navigation.PushAsync(new PrivateChatPage(chat));
             }            
+        }
+        private void RenameChat (Chat chat)
+        {
+            ((NavigationPage)App.Current.MainPage).Navigation.PushAsync(new RenameChatPage(chat));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

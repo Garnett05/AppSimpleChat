@@ -4,20 +4,29 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             x:Name="ContPage"
              x:Class="AppSimpleChat.View.ChatPage"
              Title="Public Chats">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Text" />
-        <ToolbarItem IconImageSource="add.png" Text="New Chat" Command="{Binding AddCommand}"  />
-        <ToolbarItem IconImageSource="sort.png" Text="Order by Name" Command="{Binding SortCommand}" />
+        <ToolbarItem IconImageSource="add.png" Text="New Chat" Command="{Binding AddCommand}" />
+        <ToolbarItem IconImageSource="order.png" Text="Order by Name" Command="{Binding SortCommand}" />
         <ToolbarItem IconImageSource="refresh.png" Text="Refresh Page" Command="{Binding RefreshCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Chats}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" >
+        <ListView ItemsSource="{Binding Chats}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" x:Name="myListView" HasUnevenRows="True" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Label Text="{Binding nome}" TextColor="Black" />
+                        <Frame BackgroundColor="#3988F1" Margin="5, 3, 5, 5" CornerRadius="9" 
+                               HasShadow="True" IsClippedToBounds="True" Padding="8" >
+                            <StackLayout>
+                                <Label Text="{Binding nome}" TextColor="WhiteSmoke" />
+                            </StackLayout>
+                        </Frame>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="rename" Command="{Binding Path=BindingContext.RenameCommand, 
+                                Source={x:Reference ContPage}}" CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
